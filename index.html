@@ -1,157 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mecánica R5</title>
-<style>
-:root {
-  --neon: #1aff4c;
-  --dark: #050b07;
-  --dark2: #0b1a12;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-body { background: radial-gradient(circle at top, #0f2a1a, var(--dark)); color: #eafff0; overflow-x: hidden; }
+  <meta charset="UTF-8">
+  <title>Mecánica R5 | Servicio Automotriz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* Header */
-header {
-  padding: 50px 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(26,255,76,0.3);
-  box-shadow: 0 0 40px rgba(26,255,76,0.2);
-  position: relative;
-}
-header img {
-  max-width: 120px;
-  margin-bottom: 15px;
-}
-header h1 {
-  font-size: 3rem;
-  color: var(--neon);
-  text-shadow: 0 0 10px var(--neon), 0 0 30px var(--neon);
-  animation: neon-glow 1.5s infinite alternate;
-}
-header p { margin-top: 10px; font-size: 1.2rem; opacity: 0.9; }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
 
-/* Animación de neón */
-@keyframes neon-glow {
-  from { text-shadow: 0 0 5px var(--neon), 0 0 20px var(--neon); }
-  to { text-shadow: 0 0 15px var(--neon), 0 0 40px var(--neon); }
-}
+    header { text-align: center; padding: 25px; }
+    header img { max-width: 230px; filter: drop-shadow(0 0 20px #00ff66); }
 
-/* Section */
-section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-.card {
-  background: linear-gradient(180deg, var(--dark2), #030805);
-  border: 1px solid rgba(26,255,76,0.25);
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 30px;
-  box-shadow: inset 0 0 20px rgba(26,255,76,0.15), 0 0 25px rgba(26,255,76,0.15);
-  animation: fadeIn 1s ease forwards;
-  opacity: 0;
-}
-.card:nth-child(1){animation-delay:0.2s;}
-.card:nth-child(2){animation-delay:0.4s;}
-.card:nth-child(3){animation-delay:0.6s;}
-@keyframes fadeIn { to { opacity: 1; } }
+    h1, h2 { color: #00ff66; text-shadow: 0 0 10px #00ff66; text-align: center; }
 
-h2 { color: var(--neon); margin-bottom: 20px; text-shadow: 0 0 8px var(--neon); }
+    section { padding: 40px 20px; }
 
-ul { list-style: none; }
-ul li::before { content: '⚙'; color: var(--neon); margin-right: 10px; }
-ul li { margin-bottom: 12px; font-size: 1.05rem; }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-/* CTA */
-.cta { text-align: center; margin-top: 40px; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
-.cta a {
-  display: inline-block;
-  padding: 18px 32px;
-  color: #002b12;
-  background: var(--neon);
-  border-radius: 40px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 20px var(--neon), 0 0 60px rgba(26,255,76,0.8);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.cta a:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--neon), 0 0 90px rgba(26,255,76,1); }
+    .galeria img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ff6633;
+    }
 
-/* Footer */
-footer { text-align: center; padding: 30px 15px; font-size: 0.9rem; opacity: 0.7; border-top: 1px solid rgba(26,255,76,0.2); }
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-/* efecto partículas */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(var(--neon) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.08;
-  pointer-events: none;
-  animation: move 20s linear infinite;
-}
-@keyframes move { from { background-position: 0 0; } to { background-position: 200px 400px; } }
+    .card {
+      background: #111;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px #00ff6633;
+      text-align: center;
+      font-size: 16px;
+    }
 
-/* Mapa */
-.map-container {
-  margin-top: 30px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 25px rgba(26,255,76,0.3);
-}
-</style>
+    .boton {
+      display: inline-block;
+      background: #00ff66;
+      color: #000;
+      padding: 15px 35px;
+      border-radius: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 25px #00ff66;
+      margin: 15px;
+      transition: 0.3s;
+    }
+
+    .boton:hover {
+      background: #00cc55;
+      box-shadow: 0 0 40px #00ff66;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 900px;
+      height: 350px;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #00ff66;
+    }
+
+    footer { text-align: center; padding: 20px; font-size: 14px; opacity: 0.7; }
+
+    .talleres {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 12px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .taller-card {
+      background: #111;
+      border-radius: 15px;
+      padding: 10px;
+      font-size: 15px;
+      box-shadow: 0 0 15px #00ff6633;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <img src="logo.png" alt="Logo Mecánica R5"> <!-- reemplaza con tu logo -->
-  <h1>MECÁNICA R5</h1>
-  <p>Mecánica automotriz · Electricidad · Electrónica · Diagnóstico Profesional</p>
-</header>
+  <header>
+    <img src="img/logo-r5.png" alt="Mecánica R5">
+  </header>
 
-<section>
-  <div class="card">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Mecánica general y mantenciones preventivas</li>
-      <li>Revisión y reparación de frenos</li>
-      <li>Revisión y reparación de embrague</li>
-      <li>Diagnóstico con scanner electrónico</li>
-      <li>Electricidad automotriz</li>
-      <li>Electrónica automotriz</li>
-      <li>Soldadura y estructuras metálicas</li>
-      <li>Revisión previa de compra de vehículos</li>
-    </ul>
-  </div>
+  <section>
+    <h1>MECÁNICA R5</h1>
+    <p>Servicio Automotriz • Diagnóstico • Mantenciones • Electrónica</p>
+  </section>
 
-  <div class="card">
-    <h2>Por qué elegirnos</h2>
-    <ul>
-      <li>Atención personalizada y cercana</li>
-      <li>Trabajo profesional y confiable</li>
-      <li>Garantía en nuestros servicios</li>
-      <li>Experiencia en autos modernos y sistemas electrónicos</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Ubicación</h2>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.9999999!2d-73.0000!3d-41.5000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDMwJzAwLjAiUyA3M8KwMDAnMDAuMCJX!5e0!3m2!1ses-419!2scl!4v1700000000000!5m2!1ses-419!2scl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <!-- GALERÍA -->
+  <section>
+    <h2>📸 Fotos de Nuestro Trabajo</h2>
+    <div class="galeria">
+      <img src="img/trabajo1.jpg" alt="Trabajo 1">
+      <img src="img/trabajo2.jpg" alt="Trabajo 2">
+      <img src="img/trabajo3.jpg" alt="Trabajo 3">
+      <img src="img/trabajo4.jpg" alt="Trabajo 4">
     </div>
-  </div>
+  </section>
 
-  <div class="cta">
-    <a href="https://wa.me/56952131417" target="_blank">WhatsApp +56 9 5213 1417</a>
-    <a href="tel:+56952131417">Llamar Ahora</a>
-  </div>
-</section>
+  <!-- SERVICIOS -->
+  <section>
+    <h2>🛠️ Nuestros Servicios</h2>
+    <div class="servicios">
+      <div class="card">Diagnóstico Computarizado</div>
+      <div class="card">Mecánica General</div>
+      <div class="card">Sistema Eléctrico y Electrónico</div>
+      <div class="card">Mantenciones Preventivas</div>
+      <div class="card">Frenos y Suspensión</div>
+      <div class="card">Motor y Transmisión</div>
+    </div>
+  </section>
 
-<footer>
-  © 2026 Mecánica R5 · Todos los derechos reservados
-</footer>
+  <!-- BOTONES -->
+  <section style="text-align:center;">
+    <a class="boton" href="https://share.google/Mre6O1OatLQGVbbpw" target="_blank">⭐ Reseñas en Google</a>
+    <a class="boton" href="https://wa.me/56952131417" target="_blank">💬 WhatsApp</a>
+  </section>
+
+  <!-- MAPA -->
+  <section>
+    <h2>📍 Ubicación</h2>
+    <iframe src="https://www.google.com/maps?q=Mec%C3%A1nica%20R5%20Puerto%20Montt&output=embed"></iframe>
+  </section>
+
+  <!-- Talleres destacados en Puerto Montt -->
+  <section>
+    <h2>🔧 Talleres mecánicos cerca</h2>
+    <div class="talleres">
+      <div class="taller-card">Mundo Automotriz</div>
+      <div class="taller-card">mecánica a domicilio puerto montt spa</div>
+      <div class="taller-card">Servicio scanner automotriz y mecánica rápida multimarcas</div>
+      <div class="taller-card">Electromecánica JR Puerto Montt</div>
+      <div class="taller-card">JyJ Automotriz Puerto Montt</div>
+      <div class="taller-card">Taller y Serviteca Valdivia Garage</div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Mecánica R5 — Puerto Montt
+  </footer>
 
 </body>
 </html>
